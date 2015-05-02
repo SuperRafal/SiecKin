@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="35529d45c59746c69bb2cb3ad5d1d370" Name="Diagram1">
+        <EntityTypeShape EntityType="SiecKinModel.Film" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiecKinModel.Format" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiecKinModel.Kino" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiecKinModel.Klient" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiecKinModel.Pracownik" Width="1.5" PointX="5.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiecKinModel.Rezerwacja" Width="1.5" PointX="7.5" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiecKinModel.Rzad" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiecKinModel.Sala" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiecKinModel.Seans" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiecKinModel.TypBiletu" Width="1.5" PointX="5.25" PointY="15.5" IsExpanded="true" />
+        <AssociationConnector Association="SiecKinModel.Seans_Film_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="SiecKinModel.Seanse_Formaty_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="SiecKinModel.Sala_Kino_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="SiecKinModel.Rezerwacja_Klient_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="SiecKinModel.Rezerwacja_Pracownik_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="SiecKinModel.Rezerwacja_Rząd_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="SiecKinModel.Rezerwacja_Seans_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="SiecKinModel.Rezerwacja_TypBiletu_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="SiecKinModel.Rząd_Sala_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="SiecKinModel.Seans_Sala_FK" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

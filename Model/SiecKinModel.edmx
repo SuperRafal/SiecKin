@@ -1,0 +1,770 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SiecKinModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="SiecKinModelStoreContainer">
+          <EntitySet Name="Filmy" EntityType="SiecKinModel.Store.Filmy" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Formaty" EntityType="SiecKinModel.Store.Formaty" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Kina" EntityType="SiecKinModel.Store.Kina" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Klienci" EntityType="SiecKinModel.Store.Klienci" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Pracownicy" EntityType="SiecKinModel.Store.Pracownicy" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Rezerwacje" EntityType="SiecKinModel.Store.Rezerwacje" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Rzędy" EntityType="SiecKinModel.Store.Rzędy" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sale" EntityType="SiecKinModel.Store.Sale" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Seanse" EntityType="SiecKinModel.Store.Seanse" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TypyBiletów" EntityType="SiecKinModel.Store.TypyBiletów" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="Rezerwacja_Klient_FK" Association="SiecKinModel.Store.Rezerwacja_Klient_FK">
+            <End Role="Klienci" EntitySet="Klienci" />
+            <End Role="Rezerwacje" EntitySet="Rezerwacje" />
+          </AssociationSet>
+          <AssociationSet Name="Rezerwacja_Pracownik_FK" Association="SiecKinModel.Store.Rezerwacja_Pracownik_FK">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Rezerwacje" EntitySet="Rezerwacje" />
+          </AssociationSet>
+          <AssociationSet Name="Rezerwacja_Rząd_FK" Association="SiecKinModel.Store.Rezerwacja_Rząd_FK">
+            <End Role="Rzędy" EntitySet="Rzędy" />
+            <End Role="Rezerwacje" EntitySet="Rezerwacje" />
+          </AssociationSet>
+          <AssociationSet Name="Rezerwacja_Seans_FK" Association="SiecKinModel.Store.Rezerwacja_Seans_FK">
+            <End Role="Seanse" EntitySet="Seanse" />
+            <End Role="Rezerwacje" EntitySet="Rezerwacje" />
+          </AssociationSet>
+          <AssociationSet Name="Rezerwacja_TypBiletu_FK" Association="SiecKinModel.Store.Rezerwacja_TypBiletu_FK">
+            <End Role="TypyBiletów" EntitySet="TypyBiletów" />
+            <End Role="Rezerwacje" EntitySet="Rezerwacje" />
+          </AssociationSet>
+          <AssociationSet Name="Rząd_Sala_FK" Association="SiecKinModel.Store.Rząd_Sala_FK">
+            <End Role="Sale" EntitySet="Sale" />
+            <End Role="Rzędy" EntitySet="Rzędy" />
+          </AssociationSet>
+          <AssociationSet Name="Sala_Kino_FK" Association="SiecKinModel.Store.Sala_Kino_FK">
+            <End Role="Kina" EntitySet="Kina" />
+            <End Role="Sale" EntitySet="Sale" />
+          </AssociationSet>
+          <AssociationSet Name="Seans_Film_FK" Association="SiecKinModel.Store.Seans_Film_FK">
+            <End Role="Filmy" EntitySet="Filmy" />
+            <End Role="Seanse" EntitySet="Seanse" />
+          </AssociationSet>
+          <AssociationSet Name="Seans_Sala_FK" Association="SiecKinModel.Store.Seans_Sala_FK">
+            <End Role="Sale" EntitySet="Sale" />
+            <End Role="Seanse" EntitySet="Seanse" />
+          </AssociationSet>
+          <AssociationSet Name="Seanse_Formaty_FK" Association="SiecKinModel.Store.Seanse_Formaty_FK">
+            <End Role="Formaty" EntitySet="Formaty" />
+            <End Role="Seanse" EntitySet="Seanse" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Filmy">
+          <Key>
+            <PropertyRef Name="id_filmu" />
+          </Key>
+          <Property Name="id_filmu" Type="int" Nullable="false" />
+          <Property Name="tytul" Type="varchar" Nullable="false" MaxLength="64" />
+          <Property Name="rezyser" Type="varchar" Nullable="false" MaxLength="64" />
+          <Property Name="gatunek" Type="varchar" Nullable="false" MaxLength="64" />
+          <Property Name="kraj_produkcji" Type="varchar" Nullable="false" MaxLength="64" />
+          <Property Name="ogr_wiekowe" Type="int" Nullable="false" />
+          <Property Name="grany_od" Type="date" Nullable="false" />
+          <Property Name="grany_do" Type="date" />
+          <Property Name="opis" Type="varchar" MaxLength="512" />
+        </EntityType>
+        <EntityType Name="Formaty">
+          <Key>
+            <PropertyRef Name="id_formatu" />
+          </Key>
+          <Property Name="id_formatu" Type="int" Nullable="false" />
+          <Property Name="format" Type="varchar" Nullable="false" MaxLength="8" />
+          <Property Name="wersja_jezykowa" Type="varchar" Nullable="false" MaxLength="16" />
+        </EntityType>
+        <EntityType Name="Kina">
+          <Key>
+            <PropertyRef Name="id_kina" />
+          </Key>
+          <Property Name="id_kina" Type="int" Nullable="false" />
+          <Property Name="miejscowosc" Type="varchar" Nullable="false" MaxLength="64" />
+          <Property Name="ulica" Type="varchar" Nullable="false" MaxLength="64" />
+          <Property Name="godz_otwarcia" Type="time" Nullable="false" />
+          <Property Name="godz_zamkniecia" Type="time" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Klienci">
+          <Key>
+            <PropertyRef Name="id_klienta" />
+          </Key>
+          <Property Name="id_klienta" Type="int" Nullable="false" />
+          <Property Name="imie" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="nazwisko" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="e-mail" Type="varchar" Nullable="false" MaxLength="64" />
+          <Property Name="nr_telefonu" Type="varchar" MaxLength="16" />
+          <Property Name="nr_konta" Type="varchar" MaxLength="64" />
+          <Property Name="login" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="haslo" Type="varchar" Nullable="false" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="Pracownicy">
+          <Key>
+            <PropertyRef Name="id_pracownika" />
+          </Key>
+          <Property Name="id_pracownika" Type="int" Nullable="false" />
+          <Property Name="imie" Type="varchar" Nullable="false" MaxLength="64" />
+          <Property Name="nazwisko" Type="varchar" Nullable="false" MaxLength="64" />
+          <Property Name="login" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="haslo" Type="varchar" Nullable="false" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="Rezerwacje">
+          <Key>
+            <PropertyRef Name="id_rezerwacji" />
+          </Key>
+          <Property Name="id_rezerwacji" Type="int" Nullable="false" />
+          <Property Name="id_kina" Type="int" Nullable="false" />
+          <Property Name="id_sali" Type="int" Nullable="false" />
+          <Property Name="id_rzedu" Type="int" Nullable="false" />
+          <Property Name="nr_miejsca" Type="int" Nullable="false" />
+          <Property Name="id_seansu" Type="int" Nullable="false" />
+          <Property Name="data_zlozenia" Type="datetime" Nullable="false" />
+          <Property Name="id_klienta" Type="int" />
+          <Property Name="id_pracownika" Type="int" />
+          <Property Name="id_typu_biletu" Type="int" Nullable="false" />
+          <Property Name="data_odbioru" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Rzędy">
+          <Key>
+            <PropertyRef Name="id_rzedu" />
+            <PropertyRef Name="id_sali" />
+            <PropertyRef Name="id_kina" />
+          </Key>
+          <Property Name="id_rzedu" Type="int" Nullable="false" />
+          <Property Name="id_sali" Type="int" Nullable="false" />
+          <Property Name="id_kina" Type="int" Nullable="false" />
+          <Property Name="liczba_miejsc" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sale">
+          <Key>
+            <PropertyRef Name="id_sali" />
+            <PropertyRef Name="id_kina" />
+          </Key>
+          <Property Name="id_sali" Type="int" Nullable="false" />
+          <Property Name="nazwa" Type="varchar" MaxLength="64" />
+          <Property Name="ilosc_rzedow" Type="int" Nullable="false" />
+          <Property Name="id_kina" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Seanse">
+          <Key>
+            <PropertyRef Name="id_seansu" />
+          </Key>
+          <Property Name="id_seansu" Type="int" Nullable="false" />
+          <Property Name="id_filmu" Type="int" Nullable="false" />
+          <Property Name="id_sali" Type="int" Nullable="false" />
+          <Property Name="id_kina" Type="int" Nullable="false" />
+          <Property Name="data_rozpoczecia" Type="datetime" Nullable="false" />
+          <Property Name="czas_trwania" Type="datetime" Nullable="false" />
+          <Property Name="id_formatu" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypyBiletów">
+          <Key>
+            <PropertyRef Name="id_typu_biletu" />
+          </Key>
+          <Property Name="id_typu_biletu" Type="int" Nullable="false" />
+          <Property Name="cena" Type="numeric" Nullable="false" Precision="6" Scale="2" />
+          <Property Name="rodzaj" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="obowiazuje_od" Type="date" Nullable="false" />
+          <Property Name="obowiazuje_do" Type="date" />
+        </EntityType>
+        <Association Name="Rezerwacja_Klient_FK">
+          <End Role="Klienci" Type="SiecKinModel.Store.Klienci" Multiplicity="0..1" />
+          <End Role="Rezerwacje" Type="SiecKinModel.Store.Rezerwacje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klienci">
+              <PropertyRef Name="id_klienta" />
+            </Principal>
+            <Dependent Role="Rezerwacje">
+              <PropertyRef Name="id_klienta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Rezerwacja_Pracownik_FK">
+          <End Role="Pracownicy" Type="SiecKinModel.Store.Pracownicy" Multiplicity="0..1" />
+          <End Role="Rezerwacje" Type="SiecKinModel.Store.Rezerwacje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="id_pracownika" />
+            </Principal>
+            <Dependent Role="Rezerwacje">
+              <PropertyRef Name="id_pracownika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Rezerwacja_Rząd_FK">
+          <End Role="Rzędy" Type="SiecKinModel.Store.Rzędy" Multiplicity="1" />
+          <End Role="Rezerwacje" Type="SiecKinModel.Store.Rezerwacje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rzędy">
+              <PropertyRef Name="id_rzedu" />
+              <PropertyRef Name="id_sali" />
+              <PropertyRef Name="id_kina" />
+            </Principal>
+            <Dependent Role="Rezerwacje">
+              <PropertyRef Name="id_rzedu" />
+              <PropertyRef Name="id_sali" />
+              <PropertyRef Name="id_kina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Rezerwacja_Seans_FK">
+          <End Role="Seanse" Type="SiecKinModel.Store.Seanse" Multiplicity="1" />
+          <End Role="Rezerwacje" Type="SiecKinModel.Store.Rezerwacje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seanse">
+              <PropertyRef Name="id_seansu" />
+            </Principal>
+            <Dependent Role="Rezerwacje">
+              <PropertyRef Name="id_seansu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Rezerwacja_TypBiletu_FK">
+          <End Role="TypyBiletów" Type="SiecKinModel.Store.TypyBiletów" Multiplicity="1" />
+          <End Role="Rezerwacje" Type="SiecKinModel.Store.Rezerwacje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypyBiletów">
+              <PropertyRef Name="id_typu_biletu" />
+            </Principal>
+            <Dependent Role="Rezerwacje">
+              <PropertyRef Name="id_typu_biletu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Rząd_Sala_FK">
+          <End Role="Sale" Type="SiecKinModel.Store.Sale" Multiplicity="1" />
+          <End Role="Rzędy" Type="SiecKinModel.Store.Rzędy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sale">
+              <PropertyRef Name="id_sali" />
+              <PropertyRef Name="id_kina" />
+            </Principal>
+            <Dependent Role="Rzędy">
+              <PropertyRef Name="id_sali" />
+              <PropertyRef Name="id_kina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Sala_Kino_FK">
+          <End Role="Kina" Type="SiecKinModel.Store.Kina" Multiplicity="1" />
+          <End Role="Sale" Type="SiecKinModel.Store.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kina">
+              <PropertyRef Name="id_kina" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="id_kina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Seans_Film_FK">
+          <End Role="Filmy" Type="SiecKinModel.Store.Filmy" Multiplicity="1" />
+          <End Role="Seanse" Type="SiecKinModel.Store.Seanse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filmy">
+              <PropertyRef Name="id_filmu" />
+            </Principal>
+            <Dependent Role="Seanse">
+              <PropertyRef Name="id_filmu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Seans_Sala_FK">
+          <End Role="Sale" Type="SiecKinModel.Store.Sale" Multiplicity="1" />
+          <End Role="Seanse" Type="SiecKinModel.Store.Seanse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sale">
+              <PropertyRef Name="id_sali" />
+              <PropertyRef Name="id_kina" />
+            </Principal>
+            <Dependent Role="Seanse">
+              <PropertyRef Name="id_sali" />
+              <PropertyRef Name="id_kina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Seanse_Formaty_FK">
+          <End Role="Formaty" Type="SiecKinModel.Store.Formaty" Multiplicity="1" />
+          <End Role="Seanse" Type="SiecKinModel.Store.Seanse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Formaty">
+              <PropertyRef Name="id_formatu" />
+            </Principal>
+            <Dependent Role="Seanse">
+              <PropertyRef Name="id_formatu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SiecKinModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SiecKinEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Filmy" EntityType="SiecKinModel.Film" />
+          <EntitySet Name="Formaty" EntityType="SiecKinModel.Format" />
+          <EntitySet Name="Kina" EntityType="SiecKinModel.Kino" />
+          <EntitySet Name="Klienci" EntityType="SiecKinModel.Klient" />
+          <EntitySet Name="Pracownicy" EntityType="SiecKinModel.Pracownik" />
+          <EntitySet Name="Rezerwacje" EntityType="SiecKinModel.Rezerwacja" />
+          <EntitySet Name="Rzędy" EntityType="SiecKinModel.Rzad" />
+          <EntitySet Name="Sale" EntityType="SiecKinModel.Sala" />
+          <EntitySet Name="Seanse" EntityType="SiecKinModel.Seans" />
+          <EntitySet Name="TypyBiletów" EntityType="SiecKinModel.TypBiletu" />
+          <AssociationSet Name="Seans_Film_FK" Association="SiecKinModel.Seans_Film_FK">
+            <End Role="Filmy" EntitySet="Filmy" />
+            <End Role="Seanse" EntitySet="Seanse" />
+          </AssociationSet>
+          <AssociationSet Name="Seanse_Formaty_FK" Association="SiecKinModel.Seanse_Formaty_FK">
+            <End Role="Formaty" EntitySet="Formaty" />
+            <End Role="Seanse" EntitySet="Seanse" />
+          </AssociationSet>
+          <AssociationSet Name="Sala_Kino_FK" Association="SiecKinModel.Sala_Kino_FK">
+            <End Role="Kina" EntitySet="Kina" />
+            <End Role="Sale" EntitySet="Sale" />
+          </AssociationSet>
+          <AssociationSet Name="Rezerwacja_Klient_FK" Association="SiecKinModel.Rezerwacja_Klient_FK">
+            <End Role="Klienci" EntitySet="Klienci" />
+            <End Role="Rezerwacje" EntitySet="Rezerwacje" />
+          </AssociationSet>
+          <AssociationSet Name="Rezerwacja_Pracownik_FK" Association="SiecKinModel.Rezerwacja_Pracownik_FK">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Rezerwacje" EntitySet="Rezerwacje" />
+          </AssociationSet>
+          <AssociationSet Name="Rezerwacja_Rząd_FK" Association="SiecKinModel.Rezerwacja_Rząd_FK">
+            <End Role="Rzędy" EntitySet="Rzędy" />
+            <End Role="Rezerwacje" EntitySet="Rezerwacje" />
+          </AssociationSet>
+          <AssociationSet Name="Rezerwacja_Seans_FK" Association="SiecKinModel.Rezerwacja_Seans_FK">
+            <End Role="Seanse" EntitySet="Seanse" />
+            <End Role="Rezerwacje" EntitySet="Rezerwacje" />
+          </AssociationSet>
+          <AssociationSet Name="Rezerwacja_TypBiletu_FK" Association="SiecKinModel.Rezerwacja_TypBiletu_FK">
+            <End Role="TypyBiletów" EntitySet="TypyBiletów" />
+            <End Role="Rezerwacje" EntitySet="Rezerwacje" />
+          </AssociationSet>
+          <AssociationSet Name="Rząd_Sala_FK" Association="SiecKinModel.Rząd_Sala_FK">
+            <End Role="Sale" EntitySet="Sale" />
+            <End Role="Rzędy" EntitySet="Rzędy" />
+          </AssociationSet>
+          <AssociationSet Name="Seans_Sala_FK" Association="SiecKinModel.Seans_Sala_FK">
+            <End Role="Sale" EntitySet="Sale" />
+            <End Role="Seanse" EntitySet="Seanse" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Film">
+          <Key>
+            <PropertyRef Name="id_filmu" />
+          </Key>
+          <Property Name="id_filmu" Type="Int32" Nullable="false" />
+          <Property Name="tytul" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="rezyser" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="gatunek" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="kraj_produkcji" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="ogr_wiekowe" Type="Int32" Nullable="false" />
+          <Property Name="grany_od" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="grany_do" Type="DateTime" Precision="0" />
+          <Property Name="opis" Type="String" MaxLength="512" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Seanse" Relationship="SiecKinModel.Seans_Film_FK" FromRole="Filmy" ToRole="Seanse" />
+        </EntityType>
+        <EntityType Name="Format">
+          <Key>
+            <PropertyRef Name="id_formatu" />
+          </Key>
+          <Property Name="id_formatu" Type="Int32" Nullable="false" />
+          <Property Name="format" Type="String" Nullable="false" MaxLength="8" Unicode="false" FixedLength="false" />
+          <Property Name="wersja_jezykowa" Type="String" Nullable="false" MaxLength="16" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Seanse" Relationship="SiecKinModel.Seanse_Formaty_FK" FromRole="Formaty" ToRole="Seanse" />
+        </EntityType>
+        <EntityType Name="Kino">
+          <Key>
+            <PropertyRef Name="id_kina" />
+          </Key>
+          <Property Name="id_kina" Type="Int32" Nullable="false" />
+          <Property Name="miejscowosc" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="ulica" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="godz_otwarcia" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="godz_zamkniecia" Type="Time" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Sale" Relationship="SiecKinModel.Sala_Kino_FK" FromRole="Kina" ToRole="Sale" />
+        </EntityType>
+        <EntityType Name="Klient">
+          <Key>
+            <PropertyRef Name="id_klienta" />
+          </Key>
+          <Property Name="id_klienta" Type="Int32" Nullable="false" />
+          <Property Name="imie" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="nazwisko" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="e_mail" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="nr_telefonu" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="nr_konta" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="login" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="haslo" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Rezerwacje" Relationship="SiecKinModel.Rezerwacja_Klient_FK" FromRole="Klienci" ToRole="Rezerwacje" />
+        </EntityType>
+        <EntityType Name="Pracownik">
+          <Key>
+            <PropertyRef Name="id_pracownika" />
+          </Key>
+          <Property Name="id_pracownika" Type="Int32" Nullable="false" />
+          <Property Name="imie" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="nazwisko" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="login" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="haslo" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Rezerwacje" Relationship="SiecKinModel.Rezerwacja_Pracownik_FK" FromRole="Pracownicy" ToRole="Rezerwacje" />
+        </EntityType>
+        <EntityType Name="Rezerwacja">
+          <Key>
+            <PropertyRef Name="id_rezerwacji" />
+          </Key>
+          <Property Name="id_rezerwacji" Type="Int32" Nullable="false" />
+          <Property Name="id_kina" Type="Int32" Nullable="false" />
+          <Property Name="id_sali" Type="Int32" Nullable="false" />
+          <Property Name="id_rzedu" Type="Int32" Nullable="false" />
+          <Property Name="nr_miejsca" Type="Int32" Nullable="false" />
+          <Property Name="id_seansu" Type="Int32" Nullable="false" />
+          <Property Name="data_zlozenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id_klienta" Type="Int32" />
+          <Property Name="id_pracownika" Type="Int32" />
+          <Property Name="id_typu_biletu" Type="Int32" Nullable="false" />
+          <Property Name="data_odbioru" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Klient" Relationship="SiecKinModel.Rezerwacja_Klient_FK" FromRole="Rezerwacje" ToRole="Klienci" />
+          <NavigationProperty Name="Pracownik" Relationship="SiecKinModel.Rezerwacja_Pracownik_FK" FromRole="Rezerwacje" ToRole="Pracownicy" />
+          <NavigationProperty Name="Rzad" Relationship="SiecKinModel.Rezerwacja_Rząd_FK" FromRole="Rezerwacje" ToRole="Rzędy" />
+          <NavigationProperty Name="Seans" Relationship="SiecKinModel.Rezerwacja_Seans_FK" FromRole="Rezerwacje" ToRole="Seanse" />
+          <NavigationProperty Name="TypBiletu" Relationship="SiecKinModel.Rezerwacja_TypBiletu_FK" FromRole="Rezerwacje" ToRole="TypyBiletów" />
+        </EntityType>
+        <EntityType Name="Rzad">
+          <Key>
+            <PropertyRef Name="id_rzedu" />
+            <PropertyRef Name="id_sali" />
+            <PropertyRef Name="id_kina" />
+          </Key>
+          <Property Name="id_rzedu" Type="Int32" Nullable="false" />
+          <Property Name="id_sali" Type="Int32" Nullable="false" />
+          <Property Name="id_kina" Type="Int32" Nullable="false" />
+          <Property Name="liczba_miejsc" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Rezerwacje" Relationship="SiecKinModel.Rezerwacja_Rząd_FK" FromRole="Rzędy" ToRole="Rezerwacje" />
+          <NavigationProperty Name="Sala" Relationship="SiecKinModel.Rząd_Sala_FK" FromRole="Rzędy" ToRole="Sale" />
+        </EntityType>
+        <EntityType Name="Sala">
+          <Key>
+            <PropertyRef Name="id_sali" />
+            <PropertyRef Name="id_kina" />
+          </Key>
+          <Property Name="id_sali" Type="Int32" Nullable="false" />
+          <Property Name="nazwa" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="ilosc_rzedow" Type="Int32" Nullable="false" />
+          <Property Name="id_kina" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Kino" Relationship="SiecKinModel.Sala_Kino_FK" FromRole="Sale" ToRole="Kina" />
+          <NavigationProperty Name="Rzędy" Relationship="SiecKinModel.Rząd_Sala_FK" FromRole="Sale" ToRole="Rzędy" />
+          <NavigationProperty Name="Seanse" Relationship="SiecKinModel.Seans_Sala_FK" FromRole="Sale" ToRole="Seanse" />
+        </EntityType>
+        <EntityType Name="Seans">
+          <Key>
+            <PropertyRef Name="id_seansu" />
+          </Key>
+          <Property Name="id_seansu" Type="Int32" Nullable="false" />
+          <Property Name="id_filmu" Type="Int32" Nullable="false" />
+          <Property Name="id_sali" Type="Int32" Nullable="false" />
+          <Property Name="id_kina" Type="Int32" Nullable="false" />
+          <Property Name="data_rozpoczecia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="czas_trwania" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id_formatu" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Film" Relationship="SiecKinModel.Seans_Film_FK" FromRole="Seanse" ToRole="Filmy" />
+          <NavigationProperty Name="Format" Relationship="SiecKinModel.Seanse_Formaty_FK" FromRole="Seanse" ToRole="Formaty" />
+          <NavigationProperty Name="Rezerwacje" Relationship="SiecKinModel.Rezerwacja_Seans_FK" FromRole="Seanse" ToRole="Rezerwacje" />
+          <NavigationProperty Name="Sala" Relationship="SiecKinModel.Seans_Sala_FK" FromRole="Seanse" ToRole="Sale" />
+        </EntityType>
+        <EntityType Name="TypBiletu">
+          <Key>
+            <PropertyRef Name="id_typu_biletu" />
+          </Key>
+          <Property Name="id_typu_biletu" Type="Int32" Nullable="false" />
+          <Property Name="cena" Type="Decimal" Nullable="false" Precision="6" Scale="2" />
+          <Property Name="rodzaj" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="obowiazuje_od" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="obowiazuje_do" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Rezerwacje" Relationship="SiecKinModel.Rezerwacja_TypBiletu_FK" FromRole="TypyBiletów" ToRole="Rezerwacje" />
+        </EntityType>
+        <Association Name="Seans_Film_FK">
+          <End Role="Filmy" Type="SiecKinModel.Film" Multiplicity="1" />
+          <End Role="Seanse" Type="SiecKinModel.Seans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filmy">
+              <PropertyRef Name="id_filmu" />
+            </Principal>
+            <Dependent Role="Seanse">
+              <PropertyRef Name="id_filmu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Seanse_Formaty_FK">
+          <End Role="Formaty" Type="SiecKinModel.Format" Multiplicity="1" />
+          <End Role="Seanse" Type="SiecKinModel.Seans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Formaty">
+              <PropertyRef Name="id_formatu" />
+            </Principal>
+            <Dependent Role="Seanse">
+              <PropertyRef Name="id_formatu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Sala_Kino_FK">
+          <End Role="Kina" Type="SiecKinModel.Kino" Multiplicity="1" />
+          <End Role="Sale" Type="SiecKinModel.Sala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kina">
+              <PropertyRef Name="id_kina" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="id_kina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Rezerwacja_Klient_FK">
+          <End Role="Klienci" Type="SiecKinModel.Klient" Multiplicity="0..1" />
+          <End Role="Rezerwacje" Type="SiecKinModel.Rezerwacja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klienci">
+              <PropertyRef Name="id_klienta" />
+            </Principal>
+            <Dependent Role="Rezerwacje">
+              <PropertyRef Name="id_klienta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Rezerwacja_Pracownik_FK">
+          <End Role="Pracownicy" Type="SiecKinModel.Pracownik" Multiplicity="0..1" />
+          <End Role="Rezerwacje" Type="SiecKinModel.Rezerwacja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="id_pracownika" />
+            </Principal>
+            <Dependent Role="Rezerwacje">
+              <PropertyRef Name="id_pracownika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Rezerwacja_Rząd_FK">
+          <End Role="Rzędy" Type="SiecKinModel.Rzad" Multiplicity="1" />
+          <End Role="Rezerwacje" Type="SiecKinModel.Rezerwacja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rzędy">
+              <PropertyRef Name="id_rzedu" />
+              <PropertyRef Name="id_sali" />
+              <PropertyRef Name="id_kina" />
+            </Principal>
+            <Dependent Role="Rezerwacje">
+              <PropertyRef Name="id_rzedu" />
+              <PropertyRef Name="id_sali" />
+              <PropertyRef Name="id_kina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Rezerwacja_Seans_FK">
+          <End Role="Seanse" Type="SiecKinModel.Seans" Multiplicity="1" />
+          <End Role="Rezerwacje" Type="SiecKinModel.Rezerwacja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seanse">
+              <PropertyRef Name="id_seansu" />
+            </Principal>
+            <Dependent Role="Rezerwacje">
+              <PropertyRef Name="id_seansu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Rezerwacja_TypBiletu_FK">
+          <End Role="TypyBiletów" Type="SiecKinModel.TypBiletu" Multiplicity="1" />
+          <End Role="Rezerwacje" Type="SiecKinModel.Rezerwacja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypyBiletów">
+              <PropertyRef Name="id_typu_biletu" />
+            </Principal>
+            <Dependent Role="Rezerwacje">
+              <PropertyRef Name="id_typu_biletu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Rząd_Sala_FK">
+          <End Role="Sale" Type="SiecKinModel.Sala" Multiplicity="1" />
+          <End Role="Rzędy" Type="SiecKinModel.Rzad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sale">
+              <PropertyRef Name="id_sali" />
+              <PropertyRef Name="id_kina" />
+            </Principal>
+            <Dependent Role="Rzędy">
+              <PropertyRef Name="id_sali" />
+              <PropertyRef Name="id_kina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Seans_Sala_FK">
+          <End Role="Sale" Type="SiecKinModel.Sala" Multiplicity="1" />
+          <End Role="Seanse" Type="SiecKinModel.Seans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sale">
+              <PropertyRef Name="id_sali" />
+              <PropertyRef Name="id_kina" />
+            </Principal>
+            <Dependent Role="Seanse">
+              <PropertyRef Name="id_sali" />
+              <PropertyRef Name="id_kina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SiecKinModelStoreContainer" CdmEntityContainer="SiecKinEntities">
+          <EntitySetMapping Name="Filmy">
+            <EntityTypeMapping TypeName="SiecKinModel.Film">
+              <MappingFragment StoreEntitySet="Filmy">
+                <ScalarProperty Name="id_filmu" ColumnName="id_filmu" />
+                <ScalarProperty Name="tytul" ColumnName="tytul" />
+                <ScalarProperty Name="rezyser" ColumnName="rezyser" />
+                <ScalarProperty Name="gatunek" ColumnName="gatunek" />
+                <ScalarProperty Name="kraj_produkcji" ColumnName="kraj_produkcji" />
+                <ScalarProperty Name="ogr_wiekowe" ColumnName="ogr_wiekowe" />
+                <ScalarProperty Name="grany_od" ColumnName="grany_od" />
+                <ScalarProperty Name="grany_do" ColumnName="grany_do" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Formaty">
+            <EntityTypeMapping TypeName="SiecKinModel.Format">
+              <MappingFragment StoreEntitySet="Formaty">
+                <ScalarProperty Name="id_formatu" ColumnName="id_formatu" />
+                <ScalarProperty Name="format" ColumnName="format" />
+                <ScalarProperty Name="wersja_jezykowa" ColumnName="wersja_jezykowa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kina">
+            <EntityTypeMapping TypeName="SiecKinModel.Kino">
+              <MappingFragment StoreEntitySet="Kina">
+                <ScalarProperty Name="id_kina" ColumnName="id_kina" />
+                <ScalarProperty Name="miejscowosc" ColumnName="miejscowosc" />
+                <ScalarProperty Name="ulica" ColumnName="ulica" />
+                <ScalarProperty Name="godz_otwarcia" ColumnName="godz_otwarcia" />
+                <ScalarProperty Name="godz_zamkniecia" ColumnName="godz_zamkniecia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Klienci">
+            <EntityTypeMapping TypeName="SiecKinModel.Klient">
+              <MappingFragment StoreEntitySet="Klienci">
+                <ScalarProperty Name="id_klienta" ColumnName="id_klienta" />
+                <ScalarProperty Name="imie" ColumnName="imie" />
+                <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+                <ScalarProperty Name="e_mail" ColumnName="e-mail" />
+                <ScalarProperty Name="nr_telefonu" ColumnName="nr_telefonu" />
+                <ScalarProperty Name="nr_konta" ColumnName="nr_konta" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="haslo" ColumnName="haslo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pracownicy">
+            <EntityTypeMapping TypeName="SiecKinModel.Pracownik">
+              <MappingFragment StoreEntitySet="Pracownicy">
+                <ScalarProperty Name="id_pracownika" ColumnName="id_pracownika" />
+                <ScalarProperty Name="imie" ColumnName="imie" />
+                <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="haslo" ColumnName="haslo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rezerwacje">
+            <EntityTypeMapping TypeName="SiecKinModel.Rezerwacja">
+              <MappingFragment StoreEntitySet="Rezerwacje">
+                <ScalarProperty Name="id_rezerwacji" ColumnName="id_rezerwacji" />
+                <ScalarProperty Name="id_kina" ColumnName="id_kina" />
+                <ScalarProperty Name="id_sali" ColumnName="id_sali" />
+                <ScalarProperty Name="id_rzedu" ColumnName="id_rzedu" />
+                <ScalarProperty Name="nr_miejsca" ColumnName="nr_miejsca" />
+                <ScalarProperty Name="id_seansu" ColumnName="id_seansu" />
+                <ScalarProperty Name="data_zlozenia" ColumnName="data_zlozenia" />
+                <ScalarProperty Name="id_klienta" ColumnName="id_klienta" />
+                <ScalarProperty Name="id_pracownika" ColumnName="id_pracownika" />
+                <ScalarProperty Name="id_typu_biletu" ColumnName="id_typu_biletu" />
+                <ScalarProperty Name="data_odbioru" ColumnName="data_odbioru" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rzędy">
+            <EntityTypeMapping TypeName="SiecKinModel.Rzad">
+              <MappingFragment StoreEntitySet="Rzędy">
+                <ScalarProperty Name="id_rzedu" ColumnName="id_rzedu" />
+                <ScalarProperty Name="id_sali" ColumnName="id_sali" />
+                <ScalarProperty Name="id_kina" ColumnName="id_kina" />
+                <ScalarProperty Name="liczba_miejsc" ColumnName="liczba_miejsc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sale">
+            <EntityTypeMapping TypeName="SiecKinModel.Sala">
+              <MappingFragment StoreEntitySet="Sale">
+                <ScalarProperty Name="id_sali" ColumnName="id_sali" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="ilosc_rzedow" ColumnName="ilosc_rzedow" />
+                <ScalarProperty Name="id_kina" ColumnName="id_kina" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seanse">
+            <EntityTypeMapping TypeName="SiecKinModel.Seans">
+              <MappingFragment StoreEntitySet="Seanse">
+                <ScalarProperty Name="id_seansu" ColumnName="id_seansu" />
+                <ScalarProperty Name="id_filmu" ColumnName="id_filmu" />
+                <ScalarProperty Name="id_sali" ColumnName="id_sali" />
+                <ScalarProperty Name="id_kina" ColumnName="id_kina" />
+                <ScalarProperty Name="data_rozpoczecia" ColumnName="data_rozpoczecia" />
+                <ScalarProperty Name="czas_trwania" ColumnName="czas_trwania" />
+                <ScalarProperty Name="id_formatu" ColumnName="id_formatu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypyBiletów">
+            <EntityTypeMapping TypeName="SiecKinModel.TypBiletu">
+              <MappingFragment StoreEntitySet="TypyBiletów">
+                <ScalarProperty Name="id_typu_biletu" ColumnName="id_typu_biletu" />
+                <ScalarProperty Name="cena" ColumnName="cena" />
+                <ScalarProperty Name="rodzaj" ColumnName="rodzaj" />
+                <ScalarProperty Name="obowiazuje_od" ColumnName="obowiazuje_od" />
+                <ScalarProperty Name="obowiazuje_do" ColumnName="obowiazuje_do" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

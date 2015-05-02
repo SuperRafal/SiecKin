@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SiecKinModelStoreContainer" CdmEntityContainer="SiecKinEntities">
+    <EntitySetMapping Name="Filmy">
+      <EntityTypeMapping TypeName="SiecKinModel.Film">
+        <MappingFragment StoreEntitySet="Filmy">
+          <ScalarProperty Name="id_filmu" ColumnName="id_filmu" />
+          <ScalarProperty Name="tytul" ColumnName="tytul" />
+          <ScalarProperty Name="rezyser" ColumnName="rezyser" />
+          <ScalarProperty Name="gatunek" ColumnName="gatunek" />
+          <ScalarProperty Name="kraj_produkcji" ColumnName="kraj_produkcji" />
+          <ScalarProperty Name="ogr_wiekowe" ColumnName="ogr_wiekowe" />
+          <ScalarProperty Name="grany_od" ColumnName="grany_od" />
+          <ScalarProperty Name="grany_do" ColumnName="grany_do" />
+          <ScalarProperty Name="opis" ColumnName="opis" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Formaty">
+      <EntityTypeMapping TypeName="SiecKinModel.Format">
+        <MappingFragment StoreEntitySet="Formaty">
+          <ScalarProperty Name="id_formatu" ColumnName="id_formatu" />
+          <ScalarProperty Name="format" ColumnName="format" />
+          <ScalarProperty Name="wersja_jezykowa" ColumnName="wersja_jezykowa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kina">
+      <EntityTypeMapping TypeName="SiecKinModel.Kino">
+        <MappingFragment StoreEntitySet="Kina">
+          <ScalarProperty Name="id_kina" ColumnName="id_kina" />
+          <ScalarProperty Name="miejscowosc" ColumnName="miejscowosc" />
+          <ScalarProperty Name="ulica" ColumnName="ulica" />
+          <ScalarProperty Name="godz_otwarcia" ColumnName="godz_otwarcia" />
+          <ScalarProperty Name="godz_zamkniecia" ColumnName="godz_zamkniecia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Klienci">
+      <EntityTypeMapping TypeName="SiecKinModel.Klient">
+        <MappingFragment StoreEntitySet="Klienci">
+          <ScalarProperty Name="id_klienta" ColumnName="id_klienta" />
+          <ScalarProperty Name="imie" ColumnName="imie" />
+          <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+          <ScalarProperty Name="e_mail" ColumnName="e-mail" />
+          <ScalarProperty Name="nr_telefonu" ColumnName="nr_telefonu" />
+          <ScalarProperty Name="nr_konta" ColumnName="nr_konta" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="haslo" ColumnName="haslo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pracownicy">
+      <EntityTypeMapping TypeName="SiecKinModel.Pracownik">
+        <MappingFragment StoreEntitySet="Pracownicy">
+          <ScalarProperty Name="id_pracownika" ColumnName="id_pracownika" />
+          <ScalarProperty Name="imie" ColumnName="imie" />
+          <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="haslo" ColumnName="haslo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rezerwacje">
+      <EntityTypeMapping TypeName="SiecKinModel.Rezerwacja">
+        <MappingFragment StoreEntitySet="Rezerwacje">
+          <ScalarProperty Name="id_rezerwacji" ColumnName="id_rezerwacji" />
+          <ScalarProperty Name="id_kina" ColumnName="id_kina" />
+          <ScalarProperty Name="id_sali" ColumnName="id_sali" />
+          <ScalarProperty Name="id_rzedu" ColumnName="id_rzedu" />
+          <ScalarProperty Name="nr_miejsca" ColumnName="nr_miejsca" />
+          <ScalarProperty Name="id_seansu" ColumnName="id_seansu" />
+          <ScalarProperty Name="data_zlozenia" ColumnName="data_zlozenia" />
+          <ScalarProperty Name="id_klienta" ColumnName="id_klienta" />
+          <ScalarProperty Name="id_pracownika" ColumnName="id_pracownika" />
+          <ScalarProperty Name="id_typu_biletu" ColumnName="id_typu_biletu" />
+          <ScalarProperty Name="data_odbioru" ColumnName="data_odbioru" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rzędy">
+      <EntityTypeMapping TypeName="SiecKinModel.Rzad">
+        <MappingFragment StoreEntitySet="Rzędy">
+          <ScalarProperty Name="id_rzedu" ColumnName="id_rzedu" />
+          <ScalarProperty Name="id_sali" ColumnName="id_sali" />
+          <ScalarProperty Name="id_kina" ColumnName="id_kina" />
+          <ScalarProperty Name="liczba_miejsc" ColumnName="liczba_miejsc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sale">
+      <EntityTypeMapping TypeName="SiecKinModel.Sala">
+        <MappingFragment StoreEntitySet="Sale">
+          <ScalarProperty Name="id_sali" ColumnName="id_sali" />
+          <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+          <ScalarProperty Name="ilosc_rzedow" ColumnName="ilosc_rzedow" />
+          <ScalarProperty Name="id_kina" ColumnName="id_kina" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Seanse">
+      <EntityTypeMapping TypeName="SiecKinModel.Seans">
+        <MappingFragment StoreEntitySet="Seanse">
+          <ScalarProperty Name="id_seansu" ColumnName="id_seansu" />
+          <ScalarProperty Name="id_filmu" ColumnName="id_filmu" />
+          <ScalarProperty Name="id_sali" ColumnName="id_sali" />
+          <ScalarProperty Name="id_kina" ColumnName="id_kina" />
+          <ScalarProperty Name="data_rozpoczecia" ColumnName="data_rozpoczecia" />
+          <ScalarProperty Name="czas_trwania" ColumnName="czas_trwania" />
+          <ScalarProperty Name="id_formatu" ColumnName="id_formatu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypyBiletów">
+      <EntityTypeMapping TypeName="SiecKinModel.TypBiletu">
+        <MappingFragment StoreEntitySet="TypyBiletów">
+          <ScalarProperty Name="id_typu_biletu" ColumnName="id_typu_biletu" />
+          <ScalarProperty Name="cena" ColumnName="cena" />
+          <ScalarProperty Name="rodzaj" ColumnName="rodzaj" />
+          <ScalarProperty Name="obowiazuje_od" ColumnName="obowiazuje_od" />
+          <ScalarProperty Name="obowiazuje_do" ColumnName="obowiazuje_do" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,7 @@
+D:\studia\sem4\Inżynieria Oprogramowania\Apka\SiecKin\bin\SiecKin.dll
+D:\studia\sem4\Inżynieria Oprogramowania\Apka\SiecKin\bin\SiecKin.pdb
+D:\studia\sem4\Inżynieria Oprogramowania\Apka\SiecKin\bin\EntityFramework.dll
+D:\studia\sem4\Inżynieria Oprogramowania\Apka\SiecKin\bin\EntityFramework.xml
+D:\studia\sem4\Inżynieria Oprogramowania\Apka\SiecKin\obj\Debug\SiecKin.csprojResolveAssemblyReference.cache
+D:\studia\sem4\Inżynieria Oprogramowania\Apka\SiecKin\obj\Debug\SiecKin.dll
+D:\studia\sem4\Inżynieria Oprogramowania\Apka\SiecKin\obj\Debug\SiecKin.pdb
