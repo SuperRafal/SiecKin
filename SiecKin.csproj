@@ -69,6 +69,8 @@
     </Content>
     <Content Include="Global.asax" />
     <Content Include="View\index.aspx" />
+    <Content Include="View\Rezerwacje\NowaRezerwacja.aspx" />
+    <Content Include="View\Rezerwacje\WyborMiejsca.aspx" />
     <Content Include="View\style.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -122,6 +124,9 @@
       <DependentUpon>SiecKinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Kina\KinaService.cs" />
+    <Compile Include="Service\Rezerwacje\RezerwacjeFacade.cs" />
+    <Compile Include="Service\Rezerwacje\RezerwacjeService.cs" />
     <Compile Include="View\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -132,6 +137,20 @@
     <Compile Include="View\MasterPage.master.cs">
       <DependentUpon>MasterPage.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Rezerwacje\NowaRezerwacja.aspx.cs">
+      <DependentUpon>NowaRezerwacja.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Rezerwacje\NowaRezerwacja.aspx.designer.cs">
+      <DependentUpon>NowaRezerwacja.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Rezerwacje\WyborMiejsca.aspx.cs">
+      <DependentUpon>WyborMiejsca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Rezerwacje\WyborMiejsca.aspx.designer.cs">
+      <DependentUpon>WyborMiejsca.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -164,28 +183,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Service\Filmy\" />
-    <Folder Include="Service\FormatySeansow\" />
-    <Folder Include="Service\Kina\" />
-    <Folder Include="Service\Klienci\" />
-    <Folder Include="Service\Pracownicy\" />
-    <Folder Include="Service\Rezerwacje\" />
-    <Folder Include="Service\Rzedy\" />
-    <Folder Include="Service\Sale\" />
-    <Folder Include="Service\Seanse\" />
-    <Folder Include="Service\TypyBiletow\" />
-    <Folder Include="View\Filmy\" />
-    <Folder Include="View\FormatySeansow\" />
-    <Folder Include="View\Kina\" />
-    <Folder Include="View\Klienci\" />
-    <Folder Include="View\Pracownicy\" />
-    <Folder Include="View\Rezerwacje\" />
-    <Folder Include="View\Rzedy\" />
-    <Folder Include="View\Sale\" />
-    <Folder Include="View\Seanse\" />
-    <Folder Include="View\TypyBiletow\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

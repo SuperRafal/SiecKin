@@ -37,6 +37,7 @@ namespace SiecKin.View
            
             this.GridView1.DataSource = dc.Sale.ToList(); // wazna kontrolka; przypisanie do niej zawartosci tabelki Sale; !! musi byc .ToList()
             this.GridView1.DataBind(); // to tez musi byc zeby kontrolka wyswietlala dane
+            
         }
     }
 }
