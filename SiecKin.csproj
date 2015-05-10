@@ -69,6 +69,7 @@
     </Content>
     <Content Include="Global.asax" />
     <Content Include="View\index.aspx" />
+    <Content Include="View\Registration\Registration.aspx" />
     <Content Include="View\Rezerwacje\NowaRezerwacja.aspx" />
     <Content Include="View\Rezerwacje\WyborMiejsca.aspx" />
     <Content Include="View\style.css" />
@@ -125,6 +126,8 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\Kina\KinaService.cs" />
+    <Compile Include="Service\Registration\RegistrationFacade.cs" />
+    <Compile Include="Service\Registration\RegistrationService.cs" />
     <Compile Include="Service\Rezerwacje\RezerwacjeFacade.cs" />
     <Compile Include="Service\Rezerwacje\RezerwacjeService.cs" />
     <Compile Include="View\index.aspx.cs">
@@ -137,6 +140,13 @@
     <Compile Include="View\MasterPage.master.cs">
       <DependentUpon>MasterPage.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Registration\Registration.aspx.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Registration\Registration.aspx.designer.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Rezerwacje\NowaRezerwacja.aspx.cs">
       <DependentUpon>NowaRezerwacja.aspx</DependentUpon>

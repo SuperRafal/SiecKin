@@ -5,3 +5,11 @@ D:\studia\sem4\Inżynieria Oprogramowania\Apka\SiecKin\bin\EntityFramework.xml
 D:\studia\sem4\Inżynieria Oprogramowania\Apka\SiecKin\obj\Debug\SiecKin.csprojResolveAssemblyReference.cache
 D:\studia\sem4\Inżynieria Oprogramowania\Apka\SiecKin\obj\Debug\SiecKin.dll
 D:\studia\sem4\Inżynieria Oprogramowania\Apka\SiecKin\obj\Debug\SiecKin.pdb
+D:\pulpit\PROJEKT\SiecKin\bin\SiecKin.dll.config
+D:\pulpit\PROJEKT\SiecKin\bin\SiecKin.dll
+D:\pulpit\PROJEKT\SiecKin\bin\SiecKin.pdb
+D:\pulpit\PROJEKT\SiecKin\bin\EntityFramework.dll
+D:\pulpit\PROJEKT\SiecKin\bin\EntityFramework.xml
+D:\pulpit\PROJEKT\SiecKin\obj\Debug\SiecKin.csprojResolveAssemblyReference.cache
+D:\pulpit\PROJEKT\SiecKin\obj\Debug\SiecKin.dll
+D:\pulpit\PROJEKT\SiecKin\obj\Debug\SiecKin.pdb

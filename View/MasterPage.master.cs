@@ -16,4 +16,8 @@ public partial class View_MasterPage : System.Web.UI.MasterPage
     {
         Server.Transfer("~/View/Rezerwacje/NowaRezerwacja.aspx");
     }
+    protected void ButtonRejestracja_Click(object sender, EventArgs e)
+    {
+        Server.Transfer("~/View/Registration/Registration.aspx");
+    }
 }

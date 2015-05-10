@@ -22,7 +22,7 @@
                 <asp:Button ID="ButtonRepertuar" runat="server" Text="Repertuar" CssClass="przyciski" />
                 <asp:Button ID="ButtonFilmy" runat="server"  Text="Filmy" CssClass="przyciski" />
                 <asp:Button ID="ButtonNowaRerwacja" runat="server" Text="Rezerwuj" CssClass="przyciski" OnClick="ButtonNowaRerwacja_Click" />
-
+                <asp:Button ID="Registration" runat="server"  Text="Rejestracja" CssClass="przyciski" OnClick="ButtonRejestracja_Click" />
             </div>
 
             <div id ="tresc">
