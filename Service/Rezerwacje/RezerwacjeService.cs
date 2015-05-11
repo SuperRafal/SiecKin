@@ -6,7 +6,7 @@ using System.Web;
 
 namespace SiecKin.Service.Rezerwacje
 {
-    public class RezerwacjeService
+    public partial class RezerwacjeService
     {
         public RezerwacjeService()
         {

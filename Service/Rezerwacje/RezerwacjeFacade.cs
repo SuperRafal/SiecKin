@@ -7,7 +7,7 @@ using System.Web;
 
 namespace SiecKin.Service.Rezerwacje
 {
-    public class RezerwacjeFacade
+    public partial class RezerwacjeFacade
     {
         public RezerwacjeFacade ()
 	    {
