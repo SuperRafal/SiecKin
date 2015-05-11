@@ -1,5 +1,6 @@
 ﻿using SiecKin.Model;
 using SiecKin.Service.Kina;
+using SiecKin.Service.Seanse;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -95,6 +96,18 @@ namespace SiecKin.Service.Rezerwacje
         {
             KinaService s = new KinaService();
             return s.AdresyKinWMiescie(miasto);
+        }
+
+        public List<Seans> SeanseKinoDzien(int id, DateTime data)
+        {
+            SeanseService s = new SeanseService();
+            return s.SeanseKinoDzien(id, data);
+        }
+
+        public int ZwrocKino(string m, string u)
+        {
+            KinaService s = new KinaService();
+            return s.ZwrocKino(m, u);
         }
     }
 }

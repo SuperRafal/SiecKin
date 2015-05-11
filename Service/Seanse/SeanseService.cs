@@ -7,7 +7,7 @@ using System.Web;
 
 namespace SiecKin.Service.Seanse
 {
-    public class SeanseService
+    public partial class SeanseService
     {
         private SiecKinEntities dc;
 

@@ -1,4 +1,5 @@
-﻿using SiecKin.Model;
+﻿//Mateusz Brud part
+using SiecKin.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,13 @@ namespace SiecKin.Service.Kina
                         where k.miejscowosc == miasto
                         select k.ulica;
             return query.ToList();
+        }
+        public int ZwrocKino(string m, string u)
+        {
+            var query = from k in dc.Kina
+                        where k.miejscowosc == m && k.ulica == u
+                        select k.id_kina;
+            return query.ToList().ElementAt(0);
         }
     }
 }
