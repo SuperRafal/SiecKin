@@ -125,11 +125,18 @@
       <DependentUpon>SiecKinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Filmy\FilmyFacade.cs" />
+    <Compile Include="Service\Filmy\FilmyService.cs" />
+    <Compile Include="Service\Kina\KinaFacade1.cs" />
     <Compile Include="Service\Kina\KinaService.cs" />
+    <Compile Include="Service\Kina\KinaService1.cs" />
     <Compile Include="Service\Registration\RegistrationFacade.cs" />
     <Compile Include="Service\Registration\RegistrationService.cs" />
     <Compile Include="Service\Rezerwacje\RezerwacjeFacade.cs" />
     <Compile Include="Service\Rezerwacje\RezerwacjeService.cs" />
+    <Compile Include="Service\Seanse\SeanseFacade.cs" />
+    <Compile Include="Service\Seanse\SeanseService.cs" />
+    <Compile Include="Service\Seanse\SeanseService1.cs" />
     <Compile Include="View\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
