@@ -13,3 +13,9 @@ D:\pulpit\PROJEKT\SiecKin\bin\EntityFramework.xml
 D:\pulpit\PROJEKT\SiecKin\obj\Debug\SiecKin.csprojResolveAssemblyReference.cache
 D:\pulpit\PROJEKT\SiecKin\obj\Debug\SiecKin.dll
 D:\pulpit\PROJEKT\SiecKin\obj\Debug\SiecKin.pdb
+D:\studia\sem4\InżynieriaOprogramowania\Apka\SiecKin\bin\SiecKin.dll
+D:\studia\sem4\InżynieriaOprogramowania\Apka\SiecKin\bin\SiecKin.pdb
+D:\studia\sem4\InżynieriaOprogramowania\Apka\SiecKin\bin\EntityFramework.dll
+D:\studia\sem4\InżynieriaOprogramowania\Apka\SiecKin\bin\EntityFramework.xml
+D:\studia\sem4\InżynieriaOprogramowania\Apka\SiecKin\obj\Debug\SiecKin.dll
+D:\studia\sem4\InżynieriaOprogramowania\Apka\SiecKin\obj\Debug\SiecKin.pdb
