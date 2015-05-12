@@ -29,7 +29,14 @@ namespace SiecKin.Service.Rezerwacje
         
         public void WyznaczId(Rezerwacja r)
         {
-            r.id_rezerwacji = dc.Rezerwacje.Count() + 1;
+            if (dc.Rezerwacje.ToList().Count == 0)
+                r.id_rezerwacji = 1;
+            else
+            {
+                Rezerwacja temp = dc.Rezerwacje.ToList().ElementAt(dc.Rezerwacje.Count() - 1);
+                int id = temp.id_rezerwacji + 1;
+                r.id_rezerwacji = id;
+            }
         }
 
         public void OdbierzRezerwacje(Rezerwacja r)
@@ -103,7 +110,9 @@ namespace SiecKin.Service.Rezerwacje
 
         public Rezerwacja NowaRezerwacja()
         {
-            return new Rezerwacja();
+            Rezerwacja r = new Rezerwacja();
+            this.WyznaczId(r);
+            return r;
         }
 
 

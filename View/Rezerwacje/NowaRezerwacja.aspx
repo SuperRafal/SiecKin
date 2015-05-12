@@ -7,7 +7,7 @@
     <asp:DropDownList ID="DropDownListMiasta" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownListMiasta_SelectedIndexChanged" BackColor="#F6F1DB" ForeColor="#7d6754" Font-Names="Andalus" CssClass="ddl">
     </asp:DropDownList></p>
     <p><asp:Label ID="Label3" runat="server" Text="Kino:"></asp:Label>
-    <asp:DropDownList ID="DropDownListKina" runat="server" BackColor="#F6F1DB" ForeColor="#7d6754" Font-Names="Andalus" CssClass="ddl">
+    <asp:DropDownList ID="DropDownListKina" runat="server" AutoPostBack="True" BackColor="#F6F1DB" ForeColor="#7d6754" Font-Names="Andalus" CssClass="ddl" OnSelectedIndexChanged="DropDownListKina_SelectedIndexChanged">
     </asp:DropDownList></p>
     <asp:PlaceHolder ID="PlaceHolderDaty" runat="server" >
         <asp:Button ID="Button2" runat="server" Text=""  OnClick="DataClick" BackColor="#F6F1DB" ForeColor="#7d6754" Font-Names="Andalus" CssClass="ddl"/>       
@@ -41,4 +41,5 @@
     <p>
         <asp:Button ID="ButtonDalej" runat="server" Text="Dalej" OnClick="ButtonDalej_Click" />
     </p>
+    <asp:Button ID="ButtonTest" runat="server" Text="Button" OnClick="ButtonTest_Click" />
 </asp:Content>
