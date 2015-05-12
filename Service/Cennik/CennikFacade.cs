@@ -21,9 +21,9 @@ namespace SiecKin.Service.Cennik
             return service.WyswietlCennik();
         }
 
-        public void ZmienParametry(TypBiletu b, decimal cena, string rodzaj, Nullable<System.DataTime> obowiazuje_do)
+        public void ZmienParametry(TypBiletu b, decimal cena, string rodzaj, DateTime obowiazuje_do)
         {
-            service.ZmienParametry(b, cena, rodzaj, obowiazuje_do)
+            service.ZmienParametry(b, cena, rodzaj, obowiazuje_do);
         }
 
         public void ZmienCene(TypBiletu b, decimal cena)
@@ -36,7 +36,7 @@ namespace SiecKin.Service.Cennik
             service.ZmienRodzaj(b, rodzaj);
         }
 
-        public void ZmienDate(TypBiletu b, Nullable<System.DataTime> obowiazuje_do)
+        public void ZmienDate(TypBiletu b, DateTime obowiazuje_do)
         {
             service.ZmienDate(b, obowiazuje_do);
         }

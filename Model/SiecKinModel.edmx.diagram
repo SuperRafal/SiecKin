@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="35529d45c59746c69bb2cb3ad5d1d370" Name="Diagram1" ZoomLevel="100">
+      <Diagram DiagramId="35529d45c59746c69bb2cb3ad5d1d370" Name="Diagram1">
         <EntityTypeShape EntityType="SiecKinModel.Film" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
         <EntityTypeShape EntityType="SiecKinModel.Format" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SiecKinModel.Kino" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />

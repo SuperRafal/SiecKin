@@ -23,9 +23,7 @@
     <br />
     <asp:PlaceHolder ID="PlaceHolderSeanse" runat="server"></asp:PlaceHolder>
     <br />
-    <p>
-        <asp:Button ID="ButtonDalej" runat="server" Text="Dalej" OnClick="ButtonDalej_Click" />
-    </p>
+    
     <p>
         <asp:GridView ID="GridView1" runat="server">
             <Columns>
@@ -39,5 +37,8 @@
     
             
         </asp:GridView>
+    </p>
+    <p>
+        <asp:Button ID="ButtonDalej" runat="server" Text="Dalej" OnClick="ButtonDalej_Click" />
     </p>
 </asp:Content>

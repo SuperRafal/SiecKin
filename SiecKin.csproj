@@ -79,31 +79,31 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Model\Film.cs">
+    <Compile Include="Model\Filmy.cs">
       <DependentUpon>SiecKinModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Format.cs">
+    <Compile Include="Model\Formaty.cs">
       <DependentUpon>SiecKinModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Kino.cs">
+    <Compile Include="Model\Kina.cs">
       <DependentUpon>SiecKinModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Klient.cs">
+    <Compile Include="Model\Klienci.cs">
       <DependentUpon>SiecKinModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Pracownik.cs">
+    <Compile Include="Model\Pracownicy.cs">
       <DependentUpon>SiecKinModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Rezerwacja.cs">
+    <Compile Include="Model\Rezerwacje.cs">
       <DependentUpon>SiecKinModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Rzad.cs">
+    <Compile Include="Model\Rzędy.cs">
       <DependentUpon>SiecKinModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Sala.cs">
+    <Compile Include="Model\Sale.cs">
       <DependentUpon>SiecKinModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Seans.cs">
+    <Compile Include="Model\Seanse.cs">
       <DependentUpon>SiecKinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\SiecKinModel.Context.cs">
@@ -121,32 +121,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SiecKinModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\TypBiletu.cs">
+    <Compile Include="Model\TypyBiletów.cs">
       <DependentUpon>SiecKinModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Cennik\CennikFacade.cs" />
+    <Compile Include="Service\Cennik\CennikService.cs" />
     <Compile Include="Service\Filmy\FilmyFacade.cs" />
     <Compile Include="Service\Filmy\FilmyService.cs" />
     <Compile Include="Service\Kina\KinaFacade1.cs" />
     <Compile Include="Service\Kina\KinaService.cs" />
-<<<<<<< HEAD
-    <Compile Include="Service\Klienci\KlienciFacade.cs" />
-    <Compile Include="Service\Klienci\KlienciService.cs" />
-    <Compile Include="Service\Pracownicy\PracownicyFacade.cs" />
-    <Compile Include="Service\Pracownicy\PracownicyService.cs" />
-=======
     <Compile Include="Service\Kina\KinaService1.cs" />
     <Compile Include="Service\Registration\RegistrationFacade.cs" />
     <Compile Include="Service\Registration\RegistrationService.cs" />
->>>>>>> origin/master
     <Compile Include="Service\Rezerwacje\RezerwacjeFacade.cs" />
     <Compile Include="Service\Rezerwacje\RezerwacjeService.cs" />
     <Compile Include="Service\Seanse\SeanseFacade.cs" />
     <Compile Include="Service\Seanse\SeanseService.cs" />
-<<<<<<< HEAD
-=======
     <Compile Include="Service\Seanse\SeanseService1.cs" />
->>>>>>> origin/master
     <Compile Include="View\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

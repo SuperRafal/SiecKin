@@ -17,12 +17,12 @@ namespace SiecKin.Service.Cennik
 
         public List<TypBiletu> WyswietlCennik()
         {
-            var query = from b in dc.Cennik
+            var query = from b in dc.TypyBiletów
                         select b;
             return query.ToList();
         }
 
-        public void ZmienParametry(TypBiletu b, decimal cena, string rodzaj, Nullable<System.DataTime> obowiazuje_do)
+        public void ZmienParametry(TypBiletu b, decimal cena, string rodzaj, DateTime obowiazuje_do)
         {
             b.cena = cena;
             b.rodzaj = rodzaj;
@@ -42,7 +42,7 @@ namespace SiecKin.Service.Cennik
             b.obowiazuje_od = DateTime.Now;
         }
 
-        public void ZmienDate(TypBiletu b, Nullable<System.DataTime> obowiazuje_do)
+        public void ZmienDate(TypBiletu b, DateTime obowiazuje_do)
         {
             b.obowiazuje_do = obowiazuje_do;
             b.obowiazuje_od = DateTime.Now;
@@ -51,13 +51,13 @@ namespace SiecKin.Service.Cennik
 
         public void UsunBilet(TypBiletu b)
         {
-            dc.Cennik.Remove(b);
+            dc.TypyBiletów.Remove(b);
             dc.SaveChanges();
         }
 
         public void DodajBilet(TypBiletu b)
         {
-            dc.Cennik.Add(b);
+            dc.TypyBiletów.Add(b);
             dc.SaveChanges();
         }
     }
