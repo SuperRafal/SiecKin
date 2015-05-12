@@ -132,6 +132,10 @@
     <Compile Include="Service\Kina\KinaFacade1.cs" />
     <Compile Include="Service\Kina\KinaService.cs" />
     <Compile Include="Service\Kina\KinaService1.cs" />
+    <Compile Include="Service\Klienci\KlienciFacade.cs" />
+    <Compile Include="Service\Klienci\KlienciService.cs" />
+    <Compile Include="Service\Pracownicy\PracownicyFacade.cs" />
+    <Compile Include="Service\Pracownicy\PracownicyService.cs" />
     <Compile Include="Service\Registration\RegistrationFacade.cs" />
     <Compile Include="Service\Registration\RegistrationService.cs" />
     <Compile Include="Service\Rezerwacje\RezerwacjeFacade.cs" />
